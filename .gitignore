@@ -1,0 +1,18 @@
+# Ambiente virtual
+venv/
+
+# Variáveis de ambiente
+.env
+
+# Arquivos temporários e de teste
+retorno.json
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Banco de dados local
+db.sqlite3
+
+# Configurações locais do VSCode
+.vscode/
