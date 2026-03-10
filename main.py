@@ -1,17 +1,17 @@
-import json
-from zeep.helpers import serialize_object
+import asyncio
 
+from app.database.config import init
 from app.use_cases.consulta_use_case import ConsultarGeralUseCase
 
 
-request = {
-    "codigo_empresa": "10",
-    "codigo_filial": "1001"
-}
+async def main():
+    await init()
+    request = {
+        "codigo_empresa": "10",
+        "codigo_filial": "1001"
+    }
+    use_case = ConsultarGeralUseCase(request)
+    result = await use_case.execute()
+    print(result)
 
-use_case = ConsultarGeralUseCase(request)
-response = use_case.execute()
-data = serialize_object(response)
-
-with open("retorno.json", "w", encoding="utf-8") as f:
-    json.dump(data, f, indent=4, ensure_ascii=False)
+asyncio.run(main())

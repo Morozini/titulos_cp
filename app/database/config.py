@@ -7,3 +7,4 @@ async def init():
         db_url=URL_DB,
         modules={"models": ["app.database.models"]},
     )
+    await Tortoise.generate_schemas()
